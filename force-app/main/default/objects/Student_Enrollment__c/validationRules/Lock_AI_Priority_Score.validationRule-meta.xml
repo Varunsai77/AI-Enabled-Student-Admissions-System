@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_AI_Priority_Score</fullName>
+    <active>true</active>
+    <description>Prevents manual overrides to the AI Priority Score field unless modified by a system administrator profile</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(AI_Priority_Score__c),
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+)</errorConditionFormula>
+    <errorDisplayField>AI_Priority_Score__c</errorDisplayField>
+    <errorMessage>The AI Priority Score is an automated system field and cannot be modified manually</errorMessage>
+</ValidationRule>

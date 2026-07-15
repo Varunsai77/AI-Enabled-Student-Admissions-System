@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>j5Pi0P/D95At3+VTKkj1rvbpDrU093JmHTgo4bWkdas=_1</activeVersionIdentifier>
+    <developerName>Analyze_Student_Enrollment_Risk</developerName>
+    <masterLabel>Analyze Student Enrollment Risk</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are an expert AI admissions risk assessor. Analyze the following student enrollment record data and provide a concise risk summary.
+
+Student ID: {!$Input:Student_Enrollment.Name}
+Priority Score: {!$Input:Student_Enrollment.AI_Priority_Score__c}
+Discount applied: {!$Input:Student_Enrollment.Discount_Percentage__c}
+Compliance Track: {!$Input:Student_Enrollment.Approval_Status__c}
+
+Clearly state if the discount exceeds institutional thresholds, flag if manual review is completed, and provide an actionable recommendation for the counselor. Keep under 3 paragraphs.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Student_Enrollment</apiName>
+            <definition>SOBJECT://Student_Enrollment__c</definition>
+            <masterLabel>Student_Enrollment</masterLabel>
+            <referenceName>Input:Student_Enrollment</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>j5Pi0P/D95At3+VTKkj1rvbpDrU093JmHTgo4bWkdas=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>High_Discount_Requires_Approval</fullName>
+    <active>true</active>
+    <description>Prevents high-discount enrollments from being saved as fully Approved or active without an approved workflow status</description>
+    <errorConditionFormula>AND(
+    Discount_Percentage__c &gt; 0.20,
+    ISPICKVAL(Approval_Status__c, &quot;Draft&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>Approval_Status__c</errorDisplayField>
+    <errorMessage>Enrollments with a discount greater than 20% cannot remain in Draft status. You must submit this record for management approval</errorMessage>
+</ValidationRule>
